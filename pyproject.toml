@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "v2ray-auto-ip-allocator"
+version = "0.1.0"
+description = "A simple script to update elastic IPs for v2ray servers and their DNS entries in Cloudflare."
+authors = ["Calvin Kong <hungwunfai@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "v2ray_auto_ip_allocator"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+boto3 = "^1.26.16"
+cloudflare = "^2.11.1"
+oss2 = "^2.16.0"
+pytest = "^7.2.0"
+
+
+[tool.poetry.group.dev.dependencies]
+boto3-stubs = "^1.26.16"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
