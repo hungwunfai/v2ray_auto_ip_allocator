@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+PROJECT_PATH=$(git rev-parse --show-toplevel)
+pushd $PROJECT_PATH
+
+rm -rf dist && \
+poetry build && \
+poetry run pip install --upgrade -t dist/lambda_package dist/*.whl && \
+cp scripts/lambda_function.py dist/lambda_package && \
+cd dist/lambda_package && zip -r ../lambda_package.zip . -x '*.pyc'
+
+popd
